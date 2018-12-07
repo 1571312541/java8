@@ -12,6 +12,7 @@
     <module>lambda</module>
     <module>streamAPI</module>
     <module>day1</module>
+    <module>lambda2</module>
   </modules>
 
   <name>java8</name>
