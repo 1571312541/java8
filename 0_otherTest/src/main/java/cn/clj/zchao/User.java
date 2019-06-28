@@ -6,7 +6,7 @@ import lombok.*;
 /**
  * 〈〉
  *
- * @author 22902
+ * @author zc
  * @create 2018/12/7
  */
 @Getter
@@ -14,7 +14,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class User2 {
+public class User {
 
     private String name;
 
