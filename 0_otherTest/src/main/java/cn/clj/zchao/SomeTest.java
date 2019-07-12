@@ -1,5 +1,6 @@
 package cn.clj.zchao;
 
+import org.apache.commons.lang3.StringUtils;
 import org.gavaghan.geodesy.Ellipsoid;
 import org.gavaghan.geodesy.GeodeticCalculator;
 import org.gavaghan.geodesy.GeodeticCurve;
@@ -9,6 +10,8 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -18,6 +21,58 @@ import java.util.Date;
  * @create 2018/12/7
  */
 public class SomeTest {
+
+    @Test
+    public void te2(){
+        ArrayList<Object> list = new ArrayList<>();
+        ArrayList<Object> list2 = new ArrayList<>();
+
+        boolean b = list.addAll(list2);
+        System.out.println(list);
+
+    }
+    @Test
+    public void te3(){
+
+        System.out.println(StringUtils.isNotBlank(""));
+
+    }
+    @Test
+    public void getLeastMaximumTest(){
+        Integer month = 4;
+        Calendar cal = Calendar.getInstance();
+        // 设置月份
+        cal.set(Calendar.MONTH, month - 1);
+        // 获取某月最小天数
+        int firstDay = cal.getActualMinimum(Calendar.DAY_OF_MONTH);
+        // 设置日历中月份的最小天数
+        cal.set(Calendar.DAY_OF_MONTH, firstDay);
+        // 格式化日期
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String firstDayOfMonth = sdf.format(cal.getTime())+" 00:00:00";
+        System.out.println(firstDayOfMonth);
+
+        Calendar cal2 = Calendar.getInstance();
+        // 设置月份
+        cal.set(Calendar.MONTH, month - 1);
+        // 获取某月最大天数
+        int lastDay=0;
+        //2月的平年瑞年天数
+        if(month==2) {
+            lastDay = cal.getLeastMaximum(Calendar.DAY_OF_MONTH);
+        }else {
+            lastDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+        }
+        // 设置日历中月份的最大天数
+        cal.set(Calendar.DAY_OF_MONTH, lastDay);
+        // 格式化日期
+        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+        String lastDayOfMonth = sdf.format(cal.getTime())+" 23:59:59";
+
+        System.out.println(lastDayOfMonth);
+
+
+    }
     @Test
     public void t(){
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");

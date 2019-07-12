@@ -13,7 +13,26 @@ import java.util.concurrent.locks.ReentrantLock;
  * 可重入锁 最大优点是避免死锁
  * ReentrantLock、synchronized就是可重入锁，
  *
- * @author 22902
+ *
+ *
+ * synchronize 和Lock区别
+ * 1、原始构成
+ * (1)synchronized是关键字，属于JVM层面  monitorenter、monitorexit 底层通过monito等方法也是r对象完成，其wait、notify也是依赖montinor对象 只有在同步代码块或者方法中才能调用
+ * (2)lock是具体类 是api层面
+ * 2、使用方法
+ * (1)synchronized不需要手动释放锁，代码执行完后自动释放
+ * (2)reentrantLock需要手动释放，如果没有释放可能导致死锁，需要lock（）unlock（）配合 try finally完成
+ * 3、是否可以中断
+ * (1)synchornized不可中断，除非异常或者正常执行完毕
+ * (2)ReentrantLock可以中断，设置超时事件 trylock（Long timeout，TimeUnit unit）  LockInteruptibly（）放代码块中 调用interrupt（）方法中断
+ * 4、加锁是否公平
+ * (1)synchornized是非公平锁
+ * (2)ReentrantLock默认非公平锁，构造方法传布尔，true是公平锁，false是非公平锁
+ * 5、锁绑定条件Condition
+ * synchronized没有，只能随机唤醒一个，或者唤醒所有的
+ * ReentrantLock 用来实现分组唤醒需要唤醒的线程，精确唤醒
+ *
+ * @author zc
  * @create 2019/6/12
  */
 public class ReenterLockDemo {

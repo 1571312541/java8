@@ -8,7 +8,10 @@ import java.util.concurrent.locks.ReentrantLock;
  * 〈生产者消费者模式〉
  *  1、一个初始值为0的变量，两个线程交替操作，一个线程加1 另一个线程减1
  *
- *
+ *  阻塞队列 （BlockingQueue接口，和List接口是Collection下的接口）是一个队列
+ * 在多线程情况下，在某些情况下会挂起线程，即阻塞，一旦条件满足，挂起的线程会被唤醒
+ * 使用BlockingQueue ，不需要关系什么时候需要阻塞线程，什么时候需要唤醒线程。
+ * 使用的地方：生产者消费者模式、线程池、消息中间件
  * @author zc
  * @create 2019/6/20
  */
