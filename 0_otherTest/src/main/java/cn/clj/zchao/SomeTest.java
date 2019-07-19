@@ -401,6 +401,14 @@ public class SomeTest {
         }
     }
     @Test
+    public void t19() {
+        Date d = new Date(1562845145000L);
+        long time = d.getTime();
+        System.out.println(time);
+        String endTime =  DateUtils.formatDate2String(d,"yyyy-MM-dd HH:mm:ss");
+        System.out.println(endTime);
+    }
+    @Test
     public void t16() {
         int a = 0;
 //        int a = 17;
