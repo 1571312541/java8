@@ -23,6 +23,11 @@ import java.util.Date;
 public class SomeTest {
 
     @Test
+    public void te4(){
+
+
+    }
+    @Test
     public void te2(){
         ArrayList<Object> list = new ArrayList<>();
         ArrayList<Object> list2 = new ArrayList<>();
@@ -423,6 +428,61 @@ public class SomeTest {
     @Test
     public void t15() {
         System.out.println(new Date(0L));
+    }
+@Test
+    public void t20() {
+        System.out.println(Math.round(11.5));
+        System.out.println(Math.round(-11.5));
+    }
+
+    /**
+     * 球从100m高度落下，每次落地后反弹回原来高度的一半，在落下，求第十次落地时，共多少m，第10次反弹多高
+     */
+    @Test
+    public void t21() {
+        double initialMile = 100d;
+        double nextMile = 100d;
+        double totalMile = 100d;
+        for (int i= 1;i<10; i++){
+            totalMile = totalMile +nextMile;
+            nextMile = nextMile / 2;
+        }
+        System.out.println("路程："+totalMile);
+        System.out.println("高度："+nextMile / 2);
+
+        System.out.println(totalMile);
+        System.out.println(nextMile);
+    }
+    @Test
+    public void t22() {
+        float initialMile = 100f;
+        System.out.println(getTotalMile(initialMile, 10));
+        System.out.println(getNextMile(initialMile, 10));
+
+    }
+
+    public float getTotalMile(Float initialMile, Integer n) {
+        //100  100+50+50=200  100+50+50+25+25=250 100+50+50+25+25+12.5+12.5=275  275+6.25+6.25 = 287.5
+        float totalMile = initialMile;
+        for (int i = 1; i <= n; i++) {
+            if (n == 1) {
+                return initialMile;
+            }else {
+                initialMile = initialMile/2;
+                totalMile += initialMile*2;
+            }
+        }
+        return totalMile;
+    }
+    public float getNextMile(Float initialMile, Integer n) {
+        //100  100+50+50=200  100+50+50+25+25=250 100+50+50+25+25+12.5+12.5=275  275+6.25+6.25 = 287.5
+        float nextMile = 0f;
+
+        for (int i = 1; i <= n; i++) {
+            nextMile = initialMile/2;
+            initialMile = nextMile;
+        }
+        return nextMile;
     }
 
 }
